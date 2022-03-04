@@ -33,7 +33,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios', '@nuxtjs/dotenv'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/dotenv', '@nuxtjs/proxy'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -43,5 +43,13 @@ export default {
         autoprefixer: {},
       },
     },
+  },
+
+   proxy: {
+    // Simple proxy
+    "/api/": {
+      target: "https://newsapi.org/v2/",
+      pathRewrite: { "^/api/": "" }
+    }
   }
 }

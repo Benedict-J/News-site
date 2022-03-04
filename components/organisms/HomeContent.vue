@@ -26,8 +26,12 @@
     },
     methods: {
       async asyncData() {
-        this.articles = await fetch(`https://newsapi.org/v2/everything?sources=business-insider&sortBy=publishedAt`, { 
-            headers: { 'X-Api-Key': process.env.NEWSAPI }
+        this.articles = await fetch(`/api/everything?sources=business-insider&sortBy=publishedAt`, {
+            mode: 'cors',
+            headers: { 
+              'X-Api-Key': process.env.NEWSAPI, 
+              'Content-Type': 'application/json' 
+              }
           }).then(res => {
             return res.json();
           });
