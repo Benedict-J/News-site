@@ -28,7 +28,7 @@
       async asyncData() {
         this.articles = await fetch(`/api/everything?sources=business-insider&sortBy=publishedAt`, {
             headers: { 
-              'X-Api-Key': process.env.NEWSAPI
+              'Authorization': 'Bearer ' + process.env.NEWSAPI
               }
           }).then(res => {
             return res.json();
