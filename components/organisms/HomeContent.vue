@@ -27,10 +27,8 @@
     methods: {
       async asyncData() {
         this.articles = await fetch(`/api/everything?sources=business-insider&sortBy=publishedAt`, {
-            mode: 'cors',
             headers: { 
-              'X-Api-Key': process.env.NEWSAPI, 
-              'Content-Type': 'application/json' 
+              'X-Api-Key': process.env.NEWSAPI
               }
           }).then(res => {
             return res.json();
