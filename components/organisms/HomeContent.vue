@@ -26,9 +26,10 @@
     },
     methods: {
       async asyncData() {
+        console.log(process.env.NEWSAPI)
         this.articles = await fetch(`/api/everything?sources=business-insider&sortBy=publishedAt`, {
             headers: { 
-              'Authorization': 'Bearer ' + process.env.NEWSAPI
+              'Authorization': 'Bearer ' + process.env.NEWS_API
               }
           }).then(res => {
             return res.json();
