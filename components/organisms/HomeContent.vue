@@ -26,7 +26,6 @@
     },
     methods: {
       async asyncData() {
-        console.log(process.env.NUXT_ENV_NEWS_API)
         this.articles = await fetch(`/api/everything?sources=business-insider&sortBy=publishedAt`, {
             headers: { 
               'Authorization': 'Bearer ' + process.env.NUXT_ENV_NEWS_API
